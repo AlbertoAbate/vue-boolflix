@@ -9,22 +9,59 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 <body>
-    <div id="app">
+ <div id="app">
         <input type="text" 
         placeholder="Inserisci il titolo"
         v-model="cerca" 
         @keyup="filterCerca">
         <button><i class="fas fa-thumbs-up" @keyup.enter="filterCerca" ></i></button>
-    </div>
-    <div class="lista">
+    
+    <div class="lista-film">
         <ul v-for="film in filmList">
             <li class="titolo">{{ film.title }}</li>
             <li class="titolo-originale">{{ film.original_title }}</li>
-            <li class="lingua">{{ film.original_language }}</li>
-            <li class="voto">{{ film.vote_average }}</li>
+            <li class="lingua"
+                v-if="film.original_language === 'it'"
+            > <img :src="`./img/${film.original_language}.png`"> 
+            </li>
+            <li class="lingua"
+            v-else-if="film.original_language === 'en'"
+            > <img :src="`./img/${film.original_language}.png`">
+            </li>
+            <li class="lingua" v-else>{{ film.original_lenguage }}</li>
+            <li class="voto">
+                <i v-for="n in getVote(film.vote_average)"
+                   class="fas fa-star"></i>
+                <i v-for="n in 5 - getVote(film.vote_average)"
+                   class="far fa-star"></i>
+
+            </li>
         </ul>
     </div>
-    
+
+    <div class="lista-tv">
+        <ul v-for="tv in tvList">
+            <li class="titolo">{{ tv.name }}</li>
+            <li class="titolo-originale">{{ tv.original_name }}</li>
+            <li class="lingua"
+                v-if="tv.original_language === 'it'"
+            > <img :src="`./img/${tv.original_language}.png`"> 
+            </li>
+            <li class="lingua"
+            v-else-if="tv.original_language === 'en'"
+            > <img :src="`./img/${tv.original_language}.png`">
+            </li>
+            <li class="lingua" v-else>{{ tv.original_lenguage }}</li>
+            <li class="voto">
+                <i v-for="n in getVote(tv.vote_average)"
+                   class="fas fa-star"></i>
+                <i v-for="n in 5 - getVote(tv.vote_average)"
+                   class="far fa-star"></i>
+
+            </li>
+        </ul>
+    </div>
+ </div>
 
       <!-- inclusione axios -->
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
