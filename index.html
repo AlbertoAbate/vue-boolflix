@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" 
+        placeholder="Inserisci il titolo"
+        v-model="cerca" 
+        @keyup="filterCerca">
+        <button><i class="fas fa-thumbs-up" @keyup.enter="filterCerca" ></i></button>
+    </div>
+    <div class="lista">
+        <ul v-for="film in filmList">
+            <li class="titolo">{{ film.title }}</li>
+            <li class="titolo-originale">{{ film.original_title }}</li>
+            <li class="lingua">{{ film.original_language }}</li>
+            <li class="voto">{{ film.vote_average }}</li>
+        </ul>
+    </div>
+    
+
+      <!-- inclusione axios -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <!-- inclusione js -->
+      <script src="./js/main.js"></script>
+</body>
+</html>
