@@ -33,6 +33,16 @@ body {
     min-height: 100vh;
     background-color: #782626;
 }
+#facciata {
+    text-align: center;
+    padding-top: 100px;
+    color: #fff;
+}
+#facciata h1,
+#facciata h2,
+#facciata h4 {
+    margin-bottom: 20px;
+}
 .lista-film-stv {
     display: flex;
     flex-wrap: wrap;

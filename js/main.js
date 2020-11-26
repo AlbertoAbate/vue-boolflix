@@ -11,7 +11,8 @@ const app = new Vue({
         filterCerca() {
             if (this.cerca.length >= 4) {
                 this.films(),
-                this.tvs()
+                this.tvs(),
+                this.checkFacciata()
             }
             //pulizia placeholder input
             this.cerca = ''
@@ -69,7 +70,10 @@ const app = new Vue({
                 if (poster != "") 
                 return poster
             },
-            
+            checkFacciata(){
+                console.log("paperino")
+                document.getElementById('facciata').style.display='none';
+            }
             
         }
 
