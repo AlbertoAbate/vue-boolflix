@@ -26,55 +26,67 @@
         <!-- main -->
         <main>
             <div class="liste">
-                <div class="lista-film">
-                    <ul v-for="film in filmList">
-                      <li>
-                        <img :src="getPoster(film.poster_path)"
-                                 v-if="checkPoster(film.poster_path)"
+                    <ul class="lista-film-stv"
+                        v-for="film in filmList">
+                      <li class="etichette">
+                        <img  class="poster"
+                              :src="getPoster(film.poster_path)"
+                              v-if="checkPoster(film.poster_path)"
                         >
                         <img v-else src="./img/notfound.png" alt="">
                         
-                        <span class="titolo">{{ film.title }}</span>
-                        <span class="titolo-originale">{{ film.original_title }}</span>
-                        <span class="lingua"
+                        <h3 class="titolo mt white">Titolo: {{ film.title }}</h3>
+                        <h3 class="titolo-originale mt white">Titolo originale: {{ film.original_title }}</h3>
+                        <div class="lingua mt"
                             v-if="film.original_language === 'it'"
-                        > <img :src="`./img/${film.original_language}.png`"> 
-                        </span>
-                        <span class="lingua"
+                        > 
+                            <img :src="`./img/${film.original_language}.png`"> 
+                        </div>
+                        <div class="lingua mt"
                         v-else-if="film.original_language === 'en'"
-                        > <img :src="`./img/${film.original_language}.png`">
-                        </span>
-                        <span class="lingua" v-else>{{ film.original_lenguage }}</span>
-                        <span class="voto">
+                        > 
+                            <img :src="`./img/${film.original_language}.png`">
+                        </div>
+                        <div class="lingua mt" v-else>{{ film.original_language }}</div>
+                        <div class="voto mt">
                             <i v-for="n in getVote(film.vote_average)"
                                class="fas fa-star"></i>
                             <i v-for="n in 5 - getVote(film.vote_average)"
                                class="far fa-star"></i>
-                        </span>
+                        </div>
                       </li>
                     </ul>
-                </div>
             
                 <div class="lista-tv">
-                    <ul v-for="tv in tvList">
-                        <span class="titolo">{{ tv.name }}</span>
-                        <span class="titolo-originale">{{ tv.original_name }}</span>
-                        <span class="lingua"
-                            v-if="tv.original_language === 'it'"
-                        > <img :src="`./img/${tv.original_language}.png`"> 
-                        </span>
-                        <span class="lingua"
-                        v-else-if="tv.original_language === 'en'"
-                        > <img :src="`./img/${tv.original_language}.png`">
-                    </span>
-                        <span class="lingua" v-else>{{ tv.original_lenguage }}</span>
-                        <span class="voto">
+                    <ul class="lista-film-stv"
+                        v-for="tv in tvList">
+                        <li class="etichette">
+                            <img  class="poster"
+                              :src="getPoster(tv.poster_path)"
+                              v-if="checkPoster(tv.poster_path)"
+                        >
+                            <img v-else src="./img/notfound.png" alt="">
+                            <h3 class="titolo mt white">{{ tv.name }}</h3>
+                            <h4 class="titolo-originale mt white">{{ tv.original_name }}</h4>
+                            <div class="lingua mt"
+                                 v-if="tv.original_language === 'it'"
+                            > 
+                              <img :src="`./img/${tv.original_language}.png`"> 
+                            </div>
+                            <div class="lingua mt"
+                                 v-else-if="tv.original_language === 'en'"
+                            > 
+                              <img :src="`./img/${tv.original_language}.png`">
+                            </div>
+                            <div class="lingua mt" v-else>{{ tv.original_lenguage }}</div>
+                            <div class="voto mt">
                             <i v-for="n in getVote(tv.vote_average)"
                                class="fas fa-star"></i>
                             <i v-for="n in 5 - getVote(tv.vote_average)"
                                class="far fa-star"></i>
             
-                        </span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>   

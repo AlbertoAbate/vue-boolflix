@@ -7,6 +7,13 @@
 body {
     font-family: sans-serif;
 }
+/* utilities */
+.mt {
+    margin-top: 10px;
+}
+.white {
+    color: #fff;
+}
 .header-top {
     height: 80px;
     background-color: black;
@@ -22,13 +29,27 @@ body {
     padding-left: 10px;
     
 }
-main {
-    display: flex;
-}
 .liste {
     min-height: 100vh;
-    flex-grow: 1;
     background-color: #782626;
+}
+.lista-film-stv {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 50px 10px;
+    list-style: none;
+}
+.etichette {
+    flex-basis: 250px;
+    margin: 10px;
+    text-align: center;
+}
+.etichette img {
+    max-width: 100%;   
+}
+.etichette .poster {
+    border-radius: 35px;
 }
 .lingua img {
     width: 30px;
