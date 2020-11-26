@@ -26,14 +26,13 @@
         <!-- main -->
         <main>
             <div class="liste">
-                    <ul class="lista-film-stv"
-                        v-for="film in filmList">
-                      <li class="etichette">
+                    <ul class="lista-film-stv">                       
+                      <li v-for="film in filmList" class="etichette">
                         <img  class="poster"
                               :src="getPoster(film.poster_path)"
                               v-if="checkPoster(film.poster_path)"
                         >
-                        <img v-else src="./img/notfound.png" alt="">
+                        <img class="not-found" v-else src="./img/notfound.png" alt="">
                         
                         <h3 class="titolo mt white">Titolo: {{ film.title }}</h3>
                         <h3 class="titolo-originale mt white">Titolo originale: {{ film.original_title }}</h3>
@@ -58,9 +57,9 @@
                     </ul>
             
                 <div class="lista-tv">
-                    <ul class="lista-film-stv"
-                        v-for="tv in tvList">
-                        <li class="etichette">
+                    <ul class="lista-film-stv">                        
+                        <li v-for="tv in tvList"
+                            class="etichette">
                             <img  class="poster"
                               :src="getPoster(tv.poster_path)"
                               v-if="checkPoster(tv.poster_path)"

@@ -13,6 +13,8 @@ const app = new Vue({
                 this.films(),
                 this.tvs()
             }
+            //pulizia placeholder input
+            this.cerca = ''
         },
         films() {
             axios.get("https://api.themoviedb.org/3/search/movie", {

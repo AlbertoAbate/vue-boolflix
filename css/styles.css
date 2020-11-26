@@ -35,7 +35,7 @@ body {
 }
 .lista-film-stv {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 50px 10px;
     list-style: none;
