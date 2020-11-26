@@ -7,6 +7,29 @@
 body {
     font-family: sans-serif;
 }
+.header-top {
+    height: 80px;
+    background-color: black;
+}
+.header-top .logo {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.header-top .logo input {
+    width: 300px;
+    border-radius: 20px;
+    padding-left: 10px;
+    
+}
+main {
+    display: flex;
+}
+.liste {
+    min-height: 100vh;
+    flex-grow: 1;
+    background-color: #782626;
+}
 .lingua img {
     width: 30px;
 }

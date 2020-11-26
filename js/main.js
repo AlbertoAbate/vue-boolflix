@@ -35,10 +35,6 @@ const app = new Vue({
 
             },
 
-        getVote(vote) {
-                return Math.ceil (vote / 2);
-            },
-
         tvs() {
             axios.get("https://api.themoviedb.org/3/search/tv", {
                 params: {
@@ -57,9 +53,22 @@ const app = new Vue({
                 console.log(error);
               })
     
-
             },
 
+            getVote(vote) {
+                return Math.ceil (vote / 2);
+            },
+
+            getPoster(path) {
+                 return `https://image.tmdb.org/t/p/w342/${path}`
+             },
+
+            checkPoster(poster){
+                if (poster != "") 
+                return poster
+            },
+            
+            
         }
 
         },
