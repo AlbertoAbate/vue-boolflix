@@ -28,12 +28,15 @@
             <div class="liste">
                     <ul class="lista-film-stv">                       
                       <li v-for="film in filmList" class="etichette">
-                        <img  class="poster"
+                        <a href="#">
+                            <img  class="poster"
                               :src="getPoster(film.poster_path)"
                               v-if="checkPoster(film.poster_path)"
-                        >
-                        <img class="not-found" v-else src="./img/notfound.png" alt="">
+                            >
                         
+                        
+                        <img class="not-found" v-else src="./img/notfound.png" alt="">
+                        </a>
                         <h3 class="titolo mt white">Titolo: {{ film.title }}</h3>
                         <h3 class="titolo-originale mt white">Titolo originale: {{ film.original_title }}</h3>
                         <div class="lingua mt"
@@ -53,6 +56,10 @@
                             <i v-for="n in 5 - getVote(film.vote_average)"
                                class="far fa-star"></i>
                         </div>
+                        <div class="layover">
+                            <p class="overview">{{ film.overview }}</p>
+                        </div>
+                        
                       </li>
                     </ul>
             
